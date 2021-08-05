@@ -1,10 +1,10 @@
 # Python-Json-Flask-Login
 <h3>Lastest Update <code>2021, Aug 5</code></h3>
 
-<h2 id="en">English</h2>
+<h2>English</h2>
 <h3>This project is an implementation of Flask, one of Python's web libraries and JSON.</h3>
 <hr><br>
-<h2 id="th">ภาษาไทย</h2>
+<h2>ภาษาไทย</h2>
 <h3>โปรเจคนี้คือการนำ Flask ที่เป็นหนึ่งใน Web Library ของ Python มาประยุกต์ใช้กับ JSON โดยได้ใช้ JSON ในการเป็นตัวที่ใช้เก็บข้อมูล</h3><hr><br><br>
 <h3>How to use<h3><br>
 
