@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SignIn Page</title>
+	<title>SignUp Page</title>
    <!--Made with love by Mutiullah Samim -->
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -20,7 +20,7 @@
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign In</h3>
+				<h3>Sign Up</h3>
 			</div>
 			<div class="card-body">
 				<form method="POST">
@@ -37,14 +37,21 @@
 						</div>
 						<input name="passwd" required class="form-control" placeholder="Password" id="password" type="password">
 					</div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input name="passwd" required class="form-control" placeholder="Confirm Password" id="confirm_password" type="password">
+					</div>
 					<div class="form-group">
-						<input type="submit" value="Sign In" class="btn float-right login_btn">
+						<input type="submit" value="Sign Up" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Don't have account?<a href="signup">Sign Up</a>
+					Already have account?<a href="signin">Sign In</a>
 				</div>
 				<!--<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>
@@ -53,5 +60,6 @@
 		</div>
 	</div>
 </div>
+<script src="{{ url_for('static', filename='js/passwd.js')}}"></script>
 </body>
 </html>
