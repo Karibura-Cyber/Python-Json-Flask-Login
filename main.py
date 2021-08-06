@@ -1,15 +1,25 @@
-from flask import Flask, request, render_template
+from flask import Flask, flash, request, redirect, url_for, render_template
+from werkzeug.utils import secure_filename
+import os
 import os
 import json
 import base64
+import time
 
-app = Flask(__name__)
+
 if not os.path.exists('data'):
     os.makedirs('data')
-@app.route('/')
-def index():
-    return render_template('index.html')
 
+
+app = Flask(__name__)
+app.config["IMAGE_UPLOADS"] = "static/uploads/"
+
+
+@app.route('/')
+def home():
+    return 'Index Page'
+
+  
 @app.route('/signin')
 def signin():
     return render_template('signin.html')
@@ -32,9 +42,9 @@ def signin_post():
         return 'user not found'
 
     if i["username"] == name and i["passwd"] == base64_passwd:
-        return 'Welcome {}'.format(name)
+        return  "<script>window.location.href = '/userinfo/{}';</script>".format(name)
     else:
-        return 'Invalid username or password'
+        return 'Invalid username or password <a href="/signin">Sign In</a>'
    
     
 
@@ -54,11 +64,37 @@ def signup_post():
     base64_passwd = base64_bytes.decode('ascii')
 
 
- 
-    with open('data/{}_data.json'.format(name), 'w') as outfile:
-       json.dump({'username': name, 'passwd': base64_passwd}, outfile)
+    #os search file
+    if os.path.exists('data/{}_data.json'.format(name)):
+        return 'user already exists <a href="/signup">Sign Up</a>'
+    elif not os.path.exists('data/{}_data.json'.format(name)):
+        with open('data/{}_data.json'.format(name), 'w') as outfile:
+            json.dump({'username': name, 'passwd': base64_passwd, 'img': '', 'score': 0}, outfile)
+        with open('data/api/{}_data.json'.format(name), 'w') as outfile:
+            json.dump({'username': name, 'img': '', 'score': 0}, outfile)
        
-    return ''
+       
+    return  "<script>window.location.href = '/signin';</script>"
 
+
+@app.route('/userinfo/<name>')
+def userinfo(name):
+    if os.path.exists('data/{}_data.json'.format(name)):
+        with open('data/{}_data.json'.format(name), 'r') as f:
+            i = json.load(f)
+            
+    elif not os.path.exists('data/{}_data.json'.format(name)):
+        return 'user not found'
+    if i["score"] < 0:
+        score = 'Error'
+    else:
+        score = i["score"]
+    return render_template('userinfo.html', name=i["username"], score=score, img=i["img"])
+
+@app.route('/api/<name>')
+def api(name):
+    if os.path.exists('data/{}_data.json'.format(name)):
+        with open('data/{}_data.json'.format(name), 'r') as f:
+            i = json.load(f)
     
-    
+    return json.dumps({'username': i["username"], 'img': i["img"], 'score': i["score"]})
