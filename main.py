@@ -70,7 +70,7 @@ def signup_post():
     elif not os.path.exists('data/{}_data.json'.format(name)):
         with open('data/{}_data.json'.format(name), 'w') as outfile:
             json.dump({'username': name, 'passwd': base64_passwd, 'img': '', 'score': 0}, outfile)
-        with open('data/api/{}_data.json'.format(name), 'w') as outfile:
+        with open('data{}_data.json'.format(name), 'w') as outfile:
             json.dump({'username': name, 'img': '', 'score': 0}, outfile)
        
        
