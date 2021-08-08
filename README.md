@@ -33,10 +33,6 @@ pip install Flask
 
 > 8 Aug, 2021 ----> Profile Picture Upload Page 
   
-<h2>Todo</h2>
-  
-> User Profile Imange Upload
-
   <br>
 <h2>Picture</h2><hr><br>
 <code>/signin</code>
