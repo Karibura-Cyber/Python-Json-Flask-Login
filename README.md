@@ -47,4 +47,4 @@ pip install Flask
   <img src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.15752-9/234227195_262638382019340_308352488455880468_n.png?_nc_cat=101&ccb=1-4&_nc_sid=ae9488&_nc_eui2=AeFQ5YyIaswOo0hB7wDhxOWU18c762CiWEPXxzvrYKJYQxQ95DQBYFfdj6VQbb5nH3p31h92H6uuVjfpsfmdRZvc&_nc_ohc=r7owaju3s30AX_i3YG6&_nc_ht=scontent.fbkk21-1.fna&oh=099422425ddac19321d3b12da3947dd5&oe=61349B2A">
   
   <hr><br>
-  <h3>Development By <a href="https://github.com/Karibura-Cyber">Karibura (Meck)</a> 100% No Copyright</h3>
+  <h3 align="center">Development By <a href="https://github.com/Karibura-Cyber">Karibura (Meck)</a> 100% No Copyright</h3>
