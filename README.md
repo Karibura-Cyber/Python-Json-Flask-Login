@@ -1,4 +1,4 @@
-# Python-Json-Flask-Login | Lastest Update <code>8 Aug ,2021</code>
+# Python-Json-Flask-Login | Lastest Update <code>8 Aug 2021</code>
 
 
 <h2>English</h2>
