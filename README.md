@@ -6,7 +6,7 @@
 <hr><br>
 <h2>ภาษาไทย</h2>
 <h3>โปรเจคนี้คือการนำ Flask ที่เป็นหนึ่งใน Web Library ของ Python มาประยุกต์ใช้กับ JSON โดยได้ใช้ JSON ในการเป็นตัวที่ใช้เก็บข้อมูล</h3><hr><br><br>
-<h3>How to use<h3><br>
+<h2>How to use<h2><br>
 
 ```
 set FLASK_APP=main.py
@@ -18,7 +18,7 @@ set FLASK_ENV=development
 flask run
 ```
   
-<h2>Requirement</h2>
+<h2>Requirement</h2><br>
 
 ```
 pip install Flask
