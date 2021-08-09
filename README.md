@@ -48,7 +48,7 @@ pip install Flask
 <img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/228132395_234166941909507_7636189233259409638_n.png?_nc_cat=101&ccb=1-4&_nc_sid=ae9488&_nc_ohc=mj9jgDnGXQwAX99lhyY&tn=HsRQLDQgL073lxPm&_nc_ht=scontent.fbkk6-2.fna&oh=692edc05afe793c802ac926a5cbc2469&oe=6131E312">
   <code>/api/</code>
 <img src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.15752-9/222640290_950336555817980_1577264661621055369_n.png?_nc_cat=110&ccb=1-4&_nc_sid=ae9488&_nc_ohc=RhIiZ_B69KIAX9JyhC5&_nc_ht=scontent.fbkk21-1.fna&oh=bb0df0cec80ac72407f1671b4ca4aa18&oe=61325324">
-  <code>/userinfo/uploads</code>
+  <code>/userinfo/upload</code>
   <img src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.15752-9/234227195_262638382019340_308352488455880468_n.png?_nc_cat=101&ccb=1-4&_nc_sid=ae9488&_nc_eui2=AeFQ5YyIaswOo0hB7wDhxOWU18c762CiWEPXxzvrYKJYQxQ95DQBYFfdj6VQbb5nH3p31h92H6uuVjfpsfmdRZvc&_nc_ohc=r7owaju3s30AX_i3YG6&_nc_ht=scontent.fbkk21-1.fna&oh=099422425ddac19321d3b12da3947dd5&oe=61349B2A">
   
   
