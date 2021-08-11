@@ -28,7 +28,8 @@ pip install Flask
 <h2>Updating Log</h2>
   
 * 5 Aug 2021
-  * Login page
+  * Signup page
+  * Signin page
   * JSON
 * 6 Aug 2021
   * Profile Info Page
