@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SignUp Page</title>
+	<title>SignIn Page</title>
    <!--Made with love by Mutiullah Samim -->
    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -14,16 +14,19 @@
 
 	<!--Custom styles-->
 	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+	
 </head>
 <body>
+	
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-				<h3>Sign Up</h3>
+				<h3>Forget Password</h3>
 			</div>
 			<div class="card-body">
 				<form method="POST">
+					<p style="color: white;">Your Username</p>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -31,33 +34,22 @@
 						<input type="text" class="form-control" placeholder="Username" name="name" required>
 						
 					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-at"></i></span>
+					<!--<div class="input-group form-group">
+						<div class="input-group form-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input name="passwd" required class="form-control" placeholder="Password" id="password" type="password">
 						</div>
-						<input name="email" required class="form-control" placeholder="Email" type="text">
-					</div>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input name="passwd" required class="form-control" placeholder="Password" id="password" type="password">
-					</div>
-
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-key"></i></span>
-						</div>
-						<input name="passwd" required class="form-control" placeholder="Confirm Password" id="confirm_password" type="password">
-					</div>
+					</div>-->
 					<div class="form-group">
-						<input type="submit" value="Sign Up" class="btn float-right login_btn">
+						<input type="submit" value="Send" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>
 			<div class="card-footer">
 				<div class="d-flex justify-content-center links">
-					Already have account?<a href="/signin">Sign In</a>
+					Don't have account?<a href="signup">Sign Up</a>
 				</div>
 				<!--<div class="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>
@@ -66,6 +58,6 @@
 		</div>
 	</div>
 </div>
-<script src="{{ url_for('static', filename='js/passwd.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>
