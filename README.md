@@ -8,11 +8,22 @@
 <h3>โปรเจคนี้คือการนำ Flask ที่เป็นหนึ่งใน Web Library ของ Python มาประยุกต์ใช้กับ JSON โดยได้ใช้ JSON ในการเป็นตัวที่ใช้เก็บข้อมูล</h3><hr><br><br>
 <h2>How to use<h2><br>
 
+  <code>Windows / CMD</code>
 ```
 set FLASK_APP=main.py
 ```
 ```
-set FLASK_ENV=development
+flask run
+```
+```
+$env:FLASK_APP = "hello"
+```
+```
+flask run
+```
+<code>Bash / Linux</code>
+```
+export FLASK_APP=main.py
 ```
 ```
 flask run
