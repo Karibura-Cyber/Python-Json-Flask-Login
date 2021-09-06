@@ -67,11 +67,11 @@ pip install Flask
 <code>/signup</code>
 <img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/232702341_300958265116348_2442791509478958799_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=xCNNf4atJVoAX8GcDai&_nc_ht=scontent.fbkk6-2.fna&oh=13b8c420a0f02e1c8334f5398dccba40&oe=615CF10C">
 <code>/userinfo/</code>
-<img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/228132395_234166941909507_7636189233259409638_n.png?_nc_cat=101&ccb=1-4&_nc_sid=ae9488&_nc_ohc=mj9jgDnGXQwAX99lhyY&tn=HsRQLDQgL073lxPm&_nc_ht=scontent.fbkk6-2.fna&oh=692edc05afe793c802ac926a5cbc2469&oe=6131E312">
+<img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/228132395_234166941909507_7636189233259409638_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=k93xzrUoUnUAX_ii2p3&tn=6hU7arYck_OOlEOT&_nc_ht=scontent.fbkk6-2.fna&oh=37543070ad3de6b5b21b73b057c43f61&oe=615D6492">
   <code>/api/</code>
 <img src="https://scontent.fbkk6-1.fna.fbcdn.net/v/t1.15752-9/222640290_950336555817980_1577264661621055369_n.png?_nc_cat=110&ccb=1-5&_nc_sid=ae9488&_nc_ohc=SKqqib_gJbQAX8HsWEE&_nc_ht=scontent.fbkk6-1.fna&oh=35d12aefbd79382cd3a5e9ae816ab592&oe=615DD4A4">
   <code>/userinfo/upload</code>
-  <img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/228132395_234166941909507_7636189233259409638_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=k93xzrUoUnUAX_ii2p3&tn=6hU7arYck_OOlEOT&_nc_ht=scontent.fbkk6-2.fna&oh=37543070ad3de6b5b21b73b057c43f61&oe=615D6492">
+  <img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/234227195_262638382019340_308352488455880468_n.png?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=Pn2uc_Ttr8YAX9fERXZ&_nc_ht=scontent.fbkk6-2.fna&oh=69082f10072da73d32c42a38c484c1a8&oe=615C282A">
   <code>/forget</code>
  <img src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.15752-9/221261005_4272992342766729_6596585261870088010_n.png?_nc_cat=101&ccb=1-4&_nc_sid=ae9488&_nc_eui2=AeE98GruuwskGehVtJ0bP4WZIuU_UudIk80i5T9S50iTzYyiBYvtQy2YQLIYVSRqiYZCcSaHOhgfIlVR6TTuO95x&_nc_ohc=DRqVkvs7Sd4AX-pOXn7&_nc_ht=scontent.fbkk21-1.fna&oh=1c623e43a43e0f032430f55c9c5a506d&oe=61387C1F">
   
