@@ -28,6 +28,7 @@ flask run
 ```
 
   <h2> Linux </h2>
+  
 ```
 sudo apt-get install python3-flask -y
 ```
