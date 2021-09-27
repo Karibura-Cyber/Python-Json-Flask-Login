@@ -21,14 +21,14 @@
 <body>
     <nav class="navbar navbar-dark navbar-fixed-top transparent">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/userinfo/{{name}}"><i class="fas fa-chevron-circle-left"></i></a>
+          <a class="navbar-brand" href="/userinfo"><i class="fas fa-chevron-circle-left"></i></a>
         </div>
       </nav>
     </div>
     <div class="container">
         <div class="d-flex justify-content-center h-100">
             <div class="card">
-                <div class="card-header">
+                <!--<div class="card-header">
 					<h3>
 						{% with messages = get_flashed_messages() %}
 						  {% if messages %}
@@ -40,9 +40,9 @@
 						  {% endif %}
 						{% endwith %}
 						</h3>
-                </div>
+                </div>-->
                 <div class="card-body">
-					<form method="post" action="/userinfo/upload/{{name}}" enctype="multipart/form-data">
+					<form method="post" action="/userinfo/upload/" enctype="multipart/form-data">
 						<dl>
 							<p>
 								<input type="file" name="file" autocomplete="off" required>

@@ -23,6 +23,9 @@
 		<div class="card">
 			<div class="card-header">
 				<h3>Sign In</h3>
+				{% for message in get_flashed_messages() %}
+					<center><h5 style="color: red">{{ message }}</h5></center>
+				{% endfor %}
 			</div>
 			<div class="card-body">
 				<form method="POST">

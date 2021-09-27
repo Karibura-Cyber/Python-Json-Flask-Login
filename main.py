@@ -1,4 +1,4 @@
-from flask import Flask, flash, request, redirect, render_template
+from flask import Flask, flash, request, redirect, render_template, session, url_for
 from werkzeug.utils import secure_filename
 import os
 import os
@@ -13,7 +13,7 @@ if not os.path.exists('data'):
 
 app=Flask(__name__)
 
-app.secret_key = "secret key"
+app.secret_key = b'!\xd3\xca-\xc2\xf1\xe6O\xbb#&>\xc5\x98$\xd2'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 path = os.getcwd()
@@ -37,12 +37,16 @@ def allowed_file(filename):
 
 
 @app.route('/')
-def home():
-    return 'Index Page'
+def index():
+    if 'username' in session:
+        return render_template('index.html', value=session['username'], url='/userinfo', color='success', text='Hi, {}'.format(session['username']))
+    return render_template('index.html', value='Sign In', url='/signin', color='danger', text="You're not sign in.")
+    
 
   
 @app.route('/signin')
 def signin():
+    flash('')
     return render_template('signin.html')
 
 @app.route('/signin', methods=['POST'])
@@ -53,19 +57,21 @@ def signin_post():
     passwd_bytes = passwd.encode('ascii')
     base64_bytes = base64.b64encode(passwd_bytes)
     base64_passwd = base64_bytes.decode('ascii')
-
     #os check file
     if os.path.exists('data/{}_data.json'.format(name)):
         with open('data/{}_data.json'.format(name), 'r') as f:
             i = json.load(f)
             
     elif not os.path.exists('data/{}_data.json'.format(name)):
-        return 'user not found'
+        flash('User Not Found')
+        return render_template('signin.html')
 
     if i["username"] == name and i["passwd"] == base64_passwd:
-        return  "<script>window.location.href = '/userinfo/{}';</script>".format(name)
+        session['username'] = i["username"]
+        return "<script>window.location.href = '/';</script>"
     else:
-        return 'Invalid username or password <a href="/signin">Sign In</a>'
+        flash('Invalid username or password')
+        return render_template('signin.html')
    
     
 
@@ -90,54 +96,101 @@ def signup_post():
         return 'user already exists <a href="/signup">Sign Up</a>'
     elif not os.path.exists('data/{}_data.json'.format(name)):
         with open('data/{}_data.json'.format(name), 'w') as outfile:
-            json.dump({'username': name, 'passwd': base64_passwd, 'email': email, 'img': 'uploads/{}.jpg'.format(name), 'score': 0}, outfile)
+            json.dump({'username': name, 'passwd': base64_passwd, 'email': email, 'img': 'uploads/{}.jpg'.format(name)}, outfile)
 
        
        
     return  "<script>window.location.href = '/signin';</script>"
 
+@app.route('/signout')
+def logout():
+    # remove the username from the session if it's there
+    session.pop('username', None)
+    return "<script>window.location.href = '/';</script>" #redirect to home page
 
-@app.route('/userinfo/<name>')
-def userinfo(name):
-    if os.path.exists('data/{}_data.json'.format(name)):
-        with open('data/{}_data.json'.format(name), 'r') as f:
-            i = json.load(f)
+@app.route('/changepasswd')
+def changepasswd():
+    if 'username' in session:
+        return render_template('changepasswd.html')
+    return "You're not logged in"
+
+@app.route('/changepasswd', methods=['POST'])
+def changepasswd_post():
+    name = session['username']
+    new_passwd = request.form['newpasswd']
+    passwd=request.form['passwd']
+    email = request.form['email']
+    passwd_bytes = passwd.encode('ascii')
+    base64_bytes = base64.b64encode(passwd_bytes)
+    base64_passwd = base64_bytes.decode('ascii')
+    
+    #import json file
+    with open('data/{}_data.json'.format(name), 'r') as f:
+        i = json.load(f)
+    
+    if base64_passwd == i["passwd"]:
+        new_passwd_bytes = new_passwd.encode('ascii')
+        new_base64_bytes = base64.b64encode(new_passwd_bytes)
+        new_base64_passwd = new_base64_bytes.decode('ascii')
+        with open('data/{}_data.json'.format(name), 'w') as outfile:
+            json.dump({'username': name, 'passwd': new_base64_passwd, 'email': email, 'img': 'uploads/{}.jpg'.format(name)}, outfile)
+        
+        return "<script>window.location.href = '/';</script>"
+    
+
+   
+
+@app.route('/userinfo/')
+def userinfo():
+    name = session['username']
+    if 'username' in session:
+        if os.path.exists('data/{}_data.json'.format(name)):
+            with open('data/{}_data.json'.format(name), 'r') as f:
+                i = json.load(f)
             
-    elif not os.path.exists('data/{}_data.json'.format(name)):
-        return 'user not found'
-    if i["score"] < 0:
-        score = 'Error'
+        elif not os.path.exists('data/{}_data.json'.format(name)):
+            return 'user not found'
+        return render_template('userinfo.html', name=name, img=i["img"], email=i["email"])
+    return "You're not logged in"
+
+@app.route('/userinfo/upload/')
+def upload_form():
+    name = session['username']
+    if 'username' in session:
+        return render_template('upload.html', name=name)
+    return "You're not logged in"
+
+
+@app.route('/userinfo/upload/', methods=['POST'])
+def upload_file():
+    name = session['username']
+    # check if the post request has the file part
+    file = request.files['file']
+    if file.filename == '':
+        flash('No file selected for uploading')
+        return redirect(request.url)
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        flash('File successfully uploaded')
+        #os rename file
+        os.rename(os.path.join(app.config['UPLOAD_FOLDER'], filename), os.path.join(app.config['UPLOAD_FOLDER'], '{}.jpg'.format(name)))
+        return redirect('/userinfo/')
     else:
-        score = i["score"]
-        img = i["img"]
-    return render_template('userinfo.html', name=name, score=score, img=img)
+        flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
+        return redirect(request.url)
 
-@app.route('/userinfo/upload/<name>')
-def upload_form(name):
-    return render_template('upload.html', name=name)
+@app.route('/delete')
+def delete():
+    if 'username' in session:
+        name = session['username']
+        if os.path.exists('data/{}_data.json'.format(name)):
+            os.remove('data/{}_data.json'.format(name))
+            session.pop('username', None)
+            return "<script>window.location.href = '/';</script>"
+            
 
-
-@app.route('/userinfo/upload/<name>', methods=['POST'])
-def upload_file(name):
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        if file.filename == '':
-            flash('No file selected for uploading')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash('File successfully uploaded')
-            #os rename file
-            os.rename(os.path.join(app.config['UPLOAD_FOLDER'], filename), os.path.join(app.config['UPLOAD_FOLDER'], '{}.jpg'.format(name)))
-            return redirect('/userinfo/{}'.format(name))
-        else:
-            flash('Allowed file types are txt, pdf, png, jpg, jpeg, gif')
-            return redirect(request.url)
+    return "You're not logged in"
 
 @app.route('/api/<name>')
 def api(name):
@@ -145,7 +198,7 @@ def api(name):
         with open('data/{}_data.json'.format(name), 'r') as f:
             i = json.load(f)
     
-    return json.dumps({'username': i["username"], 'email': i["email"], 'score': i["score"]})
+    return json.dumps({'username': i["username"], 'email': i["email"]})
 
 @app.route('/forget')
 def forget():
@@ -198,4 +251,4 @@ def forget_send(name):
     
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host= '192.168.1.3', port=5000, debug=False)
