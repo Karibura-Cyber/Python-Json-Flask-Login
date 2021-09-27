@@ -28,7 +28,9 @@ flask run
 ```
 
   <h2> Linux </h2>
-  
+```
+sudo apt-get install python3-flask -y
+```
 ```
 export FLASK_APP=main.py
 ```
