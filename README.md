@@ -59,6 +59,11 @@ pip install Flask
   * Profile Picture Upload Page 
 * 11 Aug 2021
   * Forget password send password to gmail
+* 27 Sep 2021
+  * Session system
+  * Change Password
+  * Sign Out
+  * Fix Profile Logo not load
   
   <br>
 <h2>Picture</h2><hr><br>
