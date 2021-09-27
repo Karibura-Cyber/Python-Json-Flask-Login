@@ -91,4 +91,5 @@ pip install Flask
 
 
   <hr><br>
-  <!-- <h3 align="center">Development By <a href="https://github.com/Karibura-Cyber">Karibura (Meck)</a> 100% No Copyright</h3> -->
+<h3 align="center">Development By <a href="https://github.com/Karibura-Cyber">Karibura (Meck)</a> 100% No Copyright</h3>
+  <h3 align="center">Powered By <a href="https://get.bootstrap.com">Bootstrap</a>, <a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a></h3>
