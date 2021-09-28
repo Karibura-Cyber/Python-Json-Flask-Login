@@ -33,6 +33,9 @@ flask run
 sudo apt-get install python3-flask -y
 ```
 ```
+sudo ufw allow 5000
+```
+```
 export FLASK_APP=main.py
 ```
 ```
