@@ -60,7 +60,6 @@ pip install Flask
   * Profile Info Page
   * REST API
     * username
-    * score
 * 8 Aug 2021
   * Profile Picture Upload Page 
 * 11 Aug 2021
