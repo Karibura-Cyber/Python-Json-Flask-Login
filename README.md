@@ -21,7 +21,7 @@ flask run
   <h2> Powershell</h2>
   
 ```
-$env:FLASK_APP = "hello"
+$env:FLASK_APP = "main"
 ```
 ```
 flask run
