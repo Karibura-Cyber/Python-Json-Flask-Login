@@ -1,4 +1,4 @@
-# Flask-JSON-Login | Lastest Update <code>27 Sep 2021</code>
+# Flask-JSON-Login | Lastest Update <code>2 Oct 2021</code>
 
 
 <h2>English</h2>
@@ -70,6 +70,8 @@ pip install Flask
   * Change Password
   * Sign Out
   * Fix Profile Logo not load
+* 2 Oct 2021
+  * STMP Config
   
   <br>
 <h2>Picture</h2><hr>
@@ -95,7 +97,9 @@ pip install Flask
   <code>Change Password Page</code><br>
   <img src="https://scontent.fbkk6-2.fna.fbcdn.net/v/t1.15752-9/243269179_1061866811251365_6025750414967860363_n.png?_nc_cat=109&ccb=1-5&_nc_sid=ae9488&_nc_eui2=AeH-HKbbx5ETS77PY8KjwmXcfyo-vx5T6xl_Kj6_HlPrGWjprpcH40fJkn8DxQvRWmbJGCLDmc3xR0YmEVRhl-hP&_nc_ohc=Nhzu2DfqE8wAX8NRzx1&tn=6hU7arYck_OOlEOT&_nc_ht=scontent.fbkk6-2.fna&oh=5ff110bd3d9b031a9591581260212593&oe=61757831"><br>
 
-
+  <code>STMP Config</code>
+  <img src="https://scontent.fbkk6-1.fna.fbcdn.net/v/t39.30808-6/243867061_2743459319289883_2324431750249832497_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHzc253JFgeot5wsYhHRK78WF8OCFvBlIRYXw4IW8GUhFEz9sSINK_RFy7-ckL4JIEEQdPClfucxAwSqSvMR7-D&_nc_ohc=KnGeBF48UQ8AX9DmEK5&_nc_ht=scontent.fbkk6-1.fna&oh=f1177f94fc00fdf2fea3566e0e2df721&oe=615DCDC2"><br>
+  
   <hr><br>
 <h3 align="center">Development By <a href="https://github.com/Karibura-Cyber">Karibura (Meck)</a></h3>
   <h3 align="center">Powered By <a href="https://getbootstrap.com">Bootstrap</a>, <a href="https://flask.palletsprojects.com/en/2.0.x/">Flask</a></h3>
