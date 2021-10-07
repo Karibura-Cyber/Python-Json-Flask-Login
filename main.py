@@ -169,7 +169,10 @@ def upload_file():
     if file.filename == '':
         flash('No file selected for uploading')
         return redirect(request.url)
-    if file and allowed_file(file.filename):
+
+    elif file and allowed_file(file.filename):
+        if os.path.exists('static/uploads/{}.jpg'.format(name)):
+            os.remove('static/uploads/{}.jpg'.format(name))
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         flash('File successfully uploaded')
