@@ -16,77 +16,9 @@
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/info.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/font.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/userinfo.css') }}">
   <!--Custom styles-->
 </head>
-<style>
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(50px);
-    color: white;
-  }
-
-  .acontainer {
-    position: relative;
-
-  }
-
-  .middle {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  .image {
-    opacity: 1;
-    display: block;
-    transition: .5s ease;
-    backface-visibility: hidden;
-  }
-
-  .acontainer:hover .image {
-    opacity: 0.3;
-  }
-
-  .acontainer:hover .middle {
-    opacity: 1;
-  }
-
-  .text {
-    color: white;
-    font-size: 50px;
-  }
-
-  .upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  .btn {
-    border: 2px solid gray;
-    color: gray;
-    background-color: white;
-    padding: 8px 20px;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
-</style>
 
 <body>
   <nav class="navbar navbar-dark navbar-fixed-top transparent">
@@ -129,7 +61,7 @@
           </div>
           <center>
             <a href="javascript:void(0)" onclick="location.href='/changepasswd'" class="btn btn-outline-success">Change Password</a>
-            <a href="javascript:void(0)" onclick="location.href='/delete'" class="btn btn-outline-danger">Delete User</a>
+            <a href="javascript:void(0)" onclick="location.href='/delete'" class="btn btn-outline-danger">Delete</a>
             <a href="javascript:void(0)" onclick="location.href='/signout'" class="btn btn-outline-warning">Sign out</a>
           </center>
           <br>

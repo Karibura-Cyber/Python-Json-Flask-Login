@@ -1,0 +1,9 @@
+
+{
+    "_comment": "You can use this SMTP for 300 emails per day only.",
+    "stmp_host": "smtp-relay.sendinblue.com",
+    "stmp_port": "587", 
+    "stmp_auth": "meck22772@gmail.com", 
+    "stmp_pass": "Xt0DmvOVcSf76PYz", 
+    "stmp_sender": "noreply@robruh.ml"
+}
