@@ -1,4 +1,4 @@
-# Flask-JSON-Login | Lastest Update <code>2 Oct 2021</code>
+# Flask-JSON-Login | Last Update <code>2 Oct 2021</code>
 
 
 <h2>English</h2>
