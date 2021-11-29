@@ -1,12 +1,3 @@
-#########################################
-#  If you want to use free STMP server  #
-#  you can rename free_stmp_config.json #
-#  to config.json                       #
-#                                       #
-# but this server you can send 300 mail #
-# per day                               #
-#########################################
-
 from flask import Flask, flash, request, redirect, render_template, session, url_for
 from werkzeug.utils import secure_filename
 from smtplib import SMTP
@@ -24,7 +15,6 @@ app.secret_key = os.urandom(24)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 path = os.getcwd()
-# file Upload
 UPLOAD_FOLDER = os.path.join(path, 'static/uploads')
 
 if not os.path.isdir(UPLOAD_FOLDER):
@@ -73,6 +63,8 @@ def signin_post():
     if i["username"] == name and i["passwd"] == base64_passwd:
         session['username'] = i["username"]
         return "<script>window.location.href = '/';</script>"
+        
+        
     else:
         flash('Invalid username or password')
         return render_template('signin.html')
@@ -176,9 +168,11 @@ def upload_file():
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        # os rename file
-        os.rename(os.path.join(app.config['UPLOAD_FOLDER'], filename), os.path.join(
-            app.config['UPLOAD_FOLDER'], '{}.jpg'.format(name)))
+        if os.path.exists('static/uploads/{}.jpg'.format(name)):
+            os.remove('static/uploads/{}.jpg'.format(name))
+        os.rename(os.path.join(app.config['UPLOAD_FOLDER'], filename), os.path.join(app.config['UPLOAD_FOLDER'], '{}.jpg'.format(name)))
+        
+
         return redirect('/userinfo/')
     else:
         return redirect(request.url)
@@ -264,19 +258,22 @@ def config_post():
     with open('config.json', 'w') as f:
         json.dump({"stmp_host": host, "stmp_port": port, "stmp_auth": auth, "stmp_pass": passwd, "stmp_sender": sender}, f)
     return "<script>window.location.href = '/';</script>"  # redirect to home page
-
-"""
+                    
 #sign up RESTAPI
-@app.route('/api/signup/<username>&<email>&<password>')
-def api_signin(username, email, password):
+"""@app.route('/api/signup/<username>&<email>&<password>&<confirm_password>')
+def api_signin(username, email, password, confirm_password):
     if os.path.exists('data/{}_data.json'.format(username)):
         return 'user already exists'
     else:
         password_bytes = password.encode('utf-8')
+        confirm_password_bytes = confirm_password.encode('utf-8')
         base64_bytes = base64.b64encode(password_bytes)
         base64_passwd = base64_bytes.decode('utf-8')
-        with open('data/{}_data.json'.format(username), 'w') as outfile:
-            json.dump({'username': username, 'passwd': base64_passwd,
-                      'email': email, 'img': 'uploads/{}.jpg'.format(username)}, outfile)
-        return 'user created'
+        confirm_base64_bytes = base64.b64encode(confirm_password_bytes)
+        base64_confirm_passwd = base64_bytes.decode('utf-8')
+        if base64_confirm_passwd == base64_passwd:    
+            with open('data/{}_data.json'.format(username), 'w') as outfile:
+                json.dump({'username': username, 'passwd': base64_passwd,
+                        'email': email, 'img': 'uploads/{}.jpg'.format(username)}, outfile)
+            return 'user created'
 """
